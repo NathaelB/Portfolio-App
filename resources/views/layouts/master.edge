@@ -10,7 +10,26 @@
   @entryPointScripts('app')
 </head>
 <body class="bg-gray-900">
-@include('partials/navbar')
+@!component('components/navbar', {
+    routes: [
+      {
+        name: 'Accueil',
+        link: '/'
+      },
+      {
+        name: 'À Propos',
+        link: 'about-me'
+      },
+      {
+        name: "Mes Réalisations",
+        link: 'achievements'
+      },
+      {
+        name: "Contact",
+        link: 'contact'
+      }
+    ]
+})
 
 @!section('content')
 
