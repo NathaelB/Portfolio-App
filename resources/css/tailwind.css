@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .button--header {
+    @apply p-2 border border-slate-700 bg-slate-800 text-gray-400 rounded-md shadow-xl;
+  }
+}

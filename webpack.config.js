@@ -45,8 +45,8 @@ Encore.setPublicPath('/assets')
 | entrypoints.
 |
 */
-Encore.addEntry('app', './resources/js/app.js')
-
+Encore.addEntry('app', './resources/ts/app.ts')
+Encore.enableTypeScriptLoader()
 /*
 |--------------------------------------------------------------------------
 | Copy assets
@@ -57,10 +57,10 @@ Encore.addEntry('app', './resources/js/app.js')
 | we must copy them manually.
 |
 */
-// Encore.copyFiles({
-//   from: './resources/images',
-//   to: 'images/[path][name].[hash:8].[ext]',
-// })
+Encore.copyFiles({
+   from: './resources/images',
+   to: 'images/[path][name].[hash:8].[ext]',
+})
 
 /*
 |--------------------------------------------------------------------------
@@ -169,7 +169,7 @@ Encore.configureDevServerOptions((options) => {
 | PostCSS or CSS.
 |
 */
-// Encore.enablePostCssLoader()
+Encore.enablePostCssLoader()
 // Encore.configureCssLoader(() => {})
 
 /*
@@ -202,6 +202,7 @@ config.infrastructureLogging = {
   level: 'warn',
 }
 config.stats = 'errors-warnings'
+
 
 /*
 |--------------------------------------------------------------------------
