@@ -1,0 +1,45 @@
+@layout('layouts/master')
+
+@section('content')
+
+<div class="h-full flex flex-col">
+
+  <header class="">
+    <div class="absolute inset-0 bottom-10 bg-bottom bg-no-repeat bg-slate-50 index_beams__3fKa4">
+      <div class="cadre absolute inset-0  bg-[bottom_1px_center] bg-grid-slate-400/[0.05] bg-bottom border-b border-slate-100/5">
+
+      </div>
+    </div>
+
+    <div class="flex flex-col z-10 relative relative flex flex-col items-center justify-center text-center mx-auto  pt-16 md:min-h-[70vh] md:pb-32 pb-24 max-w-screen-xl">
+      <div class="mb-2 rounded-full inline-flex items-center justify-center shadow-xl relative overflow-hidden border border-slate-800">
+        <div class="items-center justify-center space-x-1 bg-white bg-opacity-5 bg-blend-overlay relative firefox:bg-blend-normal supports-backdrop-blur:backdrop-blur-sm supports-backdrop-blur:backdrop-brightness-125 uppercase text-xs font-semibold tracking-wide leading-5 rounded-full px-4 py-1.5 inline-flex button--animate">
+          <span class="opacity-90 text-white">nouveau site</span>
+        </div>
+      </div>
+      <div class="flex flex-col space-y-8 mx-auto">
+        <div>
+          <h1 class=" mx-auto lg:text-5xl md:text-5xl text-3xl font-bold py-8 drop-shadow-lg max-w-screen-md lg:max-w-screen-lg px-8 text-gray-100">Développeur  <span class="bg-gradient-to-l from-fuchsia-300 to-blue-400 bg-clip-text text-transparent">FullStack Typescript</span> et étudiant <span class="bg-gradient-to-l from-fuchsia-300 to-blue-400 bg-clip-text text-transparent">en informatique</span></h1>
+          <p class="text-slate-400 transform -translate-y-4 mx-6">Je me présente, je m'appelle Bonnal Nathaël, et je suis étudiant en première année de licence Informatique. Grand passionné d'informatique, je suis aussi photographe. Au niveau du développement je suis spécialisé sur le développement d'applications avec AdonisJS et VueJs !</p>
+        </div>
+
+        <div class="flex space-x-4 mx-auto relative z-50">
+          <button id="contact--button" class="button--header contact">Me Contacter</button>
+          <button id="realisation--button" class="button--header">Mes Réalisations</button>
+        </div>
+      </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 mt-16 lg:w-2/3 hidden md:block">
+        <img class="relative rounded-lg shadow-lg" src="https://tailwindui.com/img/component-images/top-nav-with-multi-column-layout-screenshot.jpg" alt="App screenshot">
+      </div>
+
+    </div>
+
+  </header>
+  <div class="relative z-50">
+    <button id="test" class="button--header contact">Me Contacter</button>
+  </div>
+  {{ inspect(auth.user) }}
+</div>
+
+
+@endsection

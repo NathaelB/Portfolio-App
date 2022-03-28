@@ -1,0 +1,47 @@
+@layout('layouts/master')
+
+@section('content')
+
+  <div class="h-full flex flex-col">
+    <header class="">
+      <div class="absolute inset-0 bottom-10 bg-bottom bg-no-repeat bg-slate-50 index_beams__3fKa4">
+        <div class="cadre absolute inset-0  bg-[bottom_1px_center] bg-grid-slate-400/[0.05] bg-bottom border-b border-slate-100/5">
+        </div>
+      </div>
+
+      <div class="flex flex-col z-10 relative relative flex flex-col items-center justify-center text-center mx-auto  pt-16 md:min-h-[70vh] md:pb-32 pb-24 max-w-screen-xl">
+        <div class=" w-full h-[250px] w-[250px]">
+          <img class="rounded-full h-full w-full mx-auto object-cover shadow-xl border border-slate-800" src="{{ asset('assets/images/pdp.jpg') }}">
+        </div>
+        <div class="mt-4">
+          <span class="text-base text-center md:text-left leading-6 font-medium uppercase text-gray-400 tracking-wider">bonnal nathaël</span>
+        </div>
+        <div>
+          <h1 class=" mx-auto lg:text-5xl md:text-5xl text-3xl font-bold py-8 drop-shadow-lg max-w-screen-md lg:max-w-screen-lg px-8 text-gray-100">Développeur  <span class="bg-gradient-to-l from-fuchsia-300 to-blue-400 bg-clip-text text-transparent">FullStack Typescript</span> et étudiant <span class="bg-gradient-to-l from-fuchsia-300 to-blue-400 bg-clip-text text-transparent">en informatique</span></h1>
+          <p class="text-slate-400 transform -translate-y-4 mx-6">Je me présente, je m'appelle Bonnal Nathaël, et je suis étudiant en première année de Licence Informatique. Grand passionné d'informatique, je suis aussi photographe. Au niveau du développement je suis spécialisé sur le développement d'application avec AdonisJS et VueJS !</p>
+        </div>
+        <div class="text-slate-300 items-center space-x-6 text-2xl">
+          <a href="https://github.com/NathaelB" target="_blank">
+            <i class="fa-brands fa-github"></i>
+          </a>
+          <a href="https://twitter.com/NathaelBonnal" target="_blank">
+            <i class="fa-brands fa-twitter"></i>
+          </a>
+          <a href="https://www.instagram.com/nathael.bnl/" target="_blank">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+          <a href="https://www.linkedin.com/in/nathael-bonnal-938a511b5/" target="_blank">
+            <i class="fa-brands fa-linkedin"></i>
+          </a>
+
+
+        </div>
+
+      </div>
+
+    </header>
+
+  </div>
+
+
+@endsection

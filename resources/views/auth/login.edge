@@ -1,0 +1,26 @@
+@layout('layouts/master')
+
+@section('content')
+  <h2>Se Connecter</h2>
+
+  <form action="" method="POST">
+    <div>
+      @!input ({
+        label: 'Email',
+        name: 'email',
+        type: 'email'
+      })
+
+      @!input ({
+      label: 'Mot de Passe',
+      name: 'password',
+      type: 'password'
+      })
+    </div>
+
+    <button>
+      Se connecter
+    </button>
+  </form>
+
+@endsection
