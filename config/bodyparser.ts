@@ -122,12 +122,12 @@ const bodyParserConfig: BodyParserConfig = {
     | NOTE: Make sure the route pattern starts with a leading slash.
     |
     | Correct
-    | ```js
+    | ```ts
     | /projects/:id/file
     | ```
     |
     | Incorrect
-    | ```js
+    | ```ts
     | projects/:id/file
     | ```
     */
