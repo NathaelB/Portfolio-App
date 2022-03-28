@@ -1,6 +1,5 @@
 import Alpine from 'alpinejs'
 import '../css/app.css'
-import './navbar/OpenDropdownMenu.ts'
 
 
 
