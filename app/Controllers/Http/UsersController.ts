@@ -6,8 +6,14 @@ import UpdateValidator from 'App/Validators/user/UpdateValidator'
 
 export default class UsersController {
 
-  public async index (): Promise<User[]> {
-    return User.query()
+  public async index ({ view, auth, bouncer, response }: HttpContextContract) {
+    const users = await User.all()
+    if (await bouncer.can('view', auth.user)) {
+      return view.render('pages/manager/user', {
+        users
+      })
+    }
+    return response.redirect().toRoute('home')
   }
 
   public async show ({ params }: HttpContextContract) {
