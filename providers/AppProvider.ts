@@ -1,10 +1,11 @@
 import { ApplicationContract } from '@ioc:Adonis/Core/Application'
+import CacheService from '../services/Cache'
 
 export default class AppProvider {
   constructor(protected app: ApplicationContract) {}
 
   public register() {
-    // Register your own bindings
+    this.app.container.singleton("Adonis/Core/Cache", () => new CacheService())
   }
 
   public async boot() {
@@ -12,7 +13,6 @@ export default class AppProvider {
   }
 
   public async ready() {
-    // App is ready
   }
 
   public async shutdown() {
