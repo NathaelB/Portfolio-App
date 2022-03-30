@@ -24,7 +24,7 @@ import Route from '@ioc:Adonis/Core/Route'
 Route.get('/', async ({ view }) => {
   return view.render('pages/index')
 }).as('home')
-
+Route.get('/notion', 'BlogsController.show')
 Route.get('/about-me', async ({view}) => {
   return view.render('pages/about')
 })
@@ -40,7 +40,8 @@ Route.group(() => {
 
 
 Route.group(() => {
-  Route.resource('users', 'UsersController').apiOnly().middleware({})
+  Route.get('/', 'ManagersController.show')
+  Route.get('/users', 'UsersController.index')
 }).prefix('manager')
 
 Route.get('/test', async ({view, response, bouncer}) => {
