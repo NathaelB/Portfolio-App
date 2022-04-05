@@ -1,6 +1,7 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import { HtmlConfig, NotionClient } from 'notion-parser'
 import Cache from '@ioc:Adonis/Core/Cache'
+import Post from 'App/Models/Post'
 
 export default class BlogsController {
 
@@ -24,6 +25,15 @@ export default class BlogsController {
     }
     return view.render('pages/notion', {
       content: Cache.get(pageId)
+    })
+  }
+
+  public async get ({view, request}: HttpContextContract) {
+    const page = request.input('page', 1)
+    const posts = await Post.query().paginate(page, 5)
+
+    return view.render('pages/blogs', {
+      posts
     })
   }
 }
