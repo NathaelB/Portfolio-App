@@ -32,8 +32,11 @@ import User from 'App/Models/User'
 */
 export const { actions } = Bouncer
   .define('view', (user: User) => {
-    return user.email === 'pro.nathaelbonnal@gmail.com';
-
+    if (user.access == true) {
+      return true
+    } else {
+      return false
+    }
   })
 
 /*
