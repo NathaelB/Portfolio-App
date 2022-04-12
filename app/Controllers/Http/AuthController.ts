@@ -26,7 +26,6 @@ export default class AuthController {
       filename: 'https://i.pinimg.com/474x/cb/c1/41/cbc141bffcabec7414a84982e474a0ad.jpg',
     })
 
-    //Avatar.$getRelation('userId').setRelated(avatar, user)
     return response.redirect().toRoute('home')
   }
 

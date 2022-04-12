@@ -3,5 +3,13 @@
   "assets/app.js": "http://localhost:8080/assets/app.js",
   "assets/images/pdp.jpg": "http://localhost:8080/assets/images/pdp.297a134b.jpg",
   "assets/images/logo.png": "http://localhost:8080/assets/images/logo.a3093918.png",
+  "assets/images/technos/node.jpeg": "http://localhost:8080/assets/images/technos/node.fa4680cc.jpeg",
+  "assets/images/technos/adonis.jpeg": "http://localhost:8080/assets/images/technos/adonis.b58b50ff.jpeg",
+  "assets/images/technos/html.jpeg": "http://localhost:8080/assets/images/technos/html.4b550933.jpeg",
+  "assets/images/technos/ts.jpeg": "http://localhost:8080/assets/images/technos/ts.d8376cb6.jpeg",
+  "assets/images/technos/css.jpeg": "http://localhost:8080/assets/images/technos/css.caad91e9.jpeg",
+  "assets/images/technos/git.jpeg": "http://localhost:8080/assets/images/technos/git.3c00c911.jpeg",
+  "assets/images/technos/vue.jpeg": "http://localhost:8080/assets/images/technos/vue.9ab39892.jpeg",
+  "assets/images/technos/sass.jpeg": "http://localhost:8080/assets/images/technos/sass.8ca070b9.jpeg",
   "assets/images/logo_white.png": "http://localhost:8080/assets/images/logo_white.c7a4ebf3.png"
 }

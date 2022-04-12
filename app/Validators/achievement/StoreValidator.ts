@@ -29,7 +29,8 @@ export default class StoreValidator {
       column: 'title'
     })]),
     description: schema.string({ trim: true }),
-    category: schema.string({ trim: true})
+    category: schema.string({ trim: true}),
+    link: schema.string.optional({ trim: true})
   })
 
   /**
