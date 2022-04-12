@@ -2,7 +2,16 @@ import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Achievement from 'App/Models/Achievement'
 import Database from '@ioc:Adonis/Lucid/Database'
 import StoreValidator from 'App/Validators/achievement/StoreValidator'
-
+import TechnoAchievement from 'App/Models/TechnoAchievement'
+import {string } from '@ioc:Adonis/Core/Helpers'
+const listeTechnos = [
+  { value: "html", image: "html.jpeg" },
+  { value: "css", image: "css.jpeg"},
+  { value: "ts", image: "ts.jpeg"},
+  { value: "nodejs", image: "node.jpeg"},
+  { value: "adonis", image: "adonis.jpeg"},
+  { value: "vue", image: "vue.jpeg"}
+]
 export default class AchievementsController {
 
   public async index ({ view, request, bouncer, response, auth }: HttpContextContract) {
@@ -27,8 +36,11 @@ export default class AchievementsController {
 
   public async visit ({ params, view }: HttpContextContract) {
     const achievement = await Achievement.findBy('slug',params.id)
+    const technos = await TechnoAchievement.query().where('achievementId', achievement!.id)
+    console.log(technos)
     return view.render('pages/achievement/show', {
-      achievement
+      achievement,
+      technos
     })
   }
 
@@ -56,11 +68,35 @@ export default class AchievementsController {
 
   public async store ({ request, session, response }: HttpContextContract) {
     const data = await request.validate(StoreValidator)
-    const slug = data.title.split(' ')
-    await Achievement.create({
+    const slug = data.title.split(' ').join('-').toLowerCase()
+   /* const achievement = await Achievement.create({
       ...data,
-      slug: slug.join('-').toLowerCase()
+      slug: slug
+    })*/
+    const thumbnail = request.file('thumbnail')
+    const newName = string.generateRandom(32) + '.' + thumbnail?.extname
+    console.log(newName)
+    await thumbnail?.moveToDisk('./', {
+      name: newName,
     })
+
+    const achievement = await Achievement.create({
+      ...data,
+      slug: slug,
+      banner: newName
+    })
+
+
+    if (request.input('technos')) {
+      const technos = request.input('technos')
+      await technos.forEach((item: string) => {
+        const data = listeTechnos.find(element => item == element.value)
+        TechnoAchievement.create({
+          achievementId: achievement.id,
+          image: data?.image
+        })
+      })
+    }
     session.flash({
       success: "Item créé"
     })
