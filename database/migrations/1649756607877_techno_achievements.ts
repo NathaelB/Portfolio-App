@@ -1,17 +1,13 @@
 import BaseSchema from '@ioc:Adonis/Lucid/Schema'
 
-export default class Achievements extends BaseSchema {
-  protected tableName = 'achievements'
+export default class TechnoAchievements extends BaseSchema {
+  protected tableName = 'techno_achievements'
 
   public async up () {
     this.schema.createTable(this.tableName, (table) => {
       table.string('id').primary()
-      table.string('title')
-      table.string('slug')
-      table.string('description')
-      table.string('category')
-      table.string('banner')
-      table.string('link')
+      table.string('achievement_id').notNullable()
+      table.string('image').notNullable()
 
       table.timestamp('created_at', { useTz: true })
       table.timestamp('updated_at', { useTz: true })

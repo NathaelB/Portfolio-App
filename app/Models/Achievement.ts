@@ -18,6 +18,12 @@ export default class Achievement extends BaseModel {
   @column()
   public category: string
 
+  @column()
+  public banner: string
+
+  @column()
+  public link: string
+
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
 
