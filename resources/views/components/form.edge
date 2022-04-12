@@ -3,15 +3,22 @@
     @!component('components/input', {
       label: 'Titre',
       name: 'title',
-      value: post.title
+      value: achievement.title
     })
     @!component('components/input', {
-      label: 'Contenu',
-      name: 'content',
-      value: post.content,
+      label: 'Description',
+      name: 'description',
+      value: achievement.description,
+      type: 'textarea'
+    })
+    @!component('components/input', {
+      label: 'Category',
+      name: 'category',
+      value: achievement.category,
       type: 'textarea'
     })
   </div>
+
 
   <div>
     <input type="checkbox" name="online" id="online">
