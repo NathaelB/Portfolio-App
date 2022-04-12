@@ -28,6 +28,8 @@ export default class StoreValidator {
     email: schema.string({ trim: true }, [rules.email(), rules.unique({ table: 'users', column: 'email' })]),
 
     password: schema.string({ trim: true }, [rules.confirmed()]),
+
+    access: schema.boolean.optional()
   })
 
   /**
