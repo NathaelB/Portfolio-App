@@ -9,12 +9,38 @@
   @entryPointStyles('app')
   @entryPointScripts('app')
 </head>
-<body class="bg-gray-900">
+<body class="bg-gray-900 h-screen">
 
-  @!section('content')
+  <div class="absolute z-5 top-0 inset-x-0 flex justify-center overflow-hidden pointer-events-none">
+    <div class="w-[108rem] flex-none flex justify-end">
+      <picture>
+        <source srcset="https://tailwindcss.com/_next/static/media/docs-dark@30.77f062b5fd90f0d2cd4752cd9a8649c8.avif" type="image/avif">
+        <img src="https://tailwindcss.com/_next/static/media/docs-dark@tinypng.a8984b7fb44a4f8232d04de50220ab31.png" alt="" class="w-[90rem] flex-none max-w-none block">
+      </picture>
+    </div>
+  </div>
+  <div class="absolute z-5 top-[40%] left-6 rotate-180  flex  pointer-events-none">
+    <div class=" bowl--effect"></div>
+  </div>
+  <div class="flex relative z-0 w-full">
+    @!component('components/manager/navbar')
+    <div class="w-[80%] ml-[20%] ">
+      @!component('components/flash')
+      @!section('content')
+    </div>
 
-
-
-
+  </div>
 </body>
 </html>
+
+<style>
+  .bowl--effect {
+    width: 485px;
+    height: 327px;
+
+    background: radial-gradient(50% 50% at 50% 50%, rgba(75, 153, 244, 0.72) 0%, rgba(56, 145, 250, 0.13) 94.79%);
+    filter: blur(133px);
+    border-radius: 163px;
+    transform: rotate(36.39deg);
+  }
+</style>
