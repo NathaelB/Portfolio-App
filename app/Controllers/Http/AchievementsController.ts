@@ -7,7 +7,7 @@ export default class AchievementsController {
 
   public async index ({ view, request, bouncer, response, auth }: HttpContextContract) {
     const page = request.input('page', 1)
-    const achievements = await Database.from(Achievement.table).paginate(page, 5)
+    const achievements = await Database.from(Achievement.table).paginate(page, 8)
     if (await bouncer.can('view', auth.user)) {
       return view.render('pages/manager/achievement/index', {
         achievements
@@ -40,6 +40,7 @@ export default class AchievementsController {
         achievement
       })
     }
+
     return response.redirect().toRoute('home')
   }
 
@@ -63,7 +64,13 @@ export default class AchievementsController {
     session.flash({
       success: "Item créé"
     })
+    setTimeout(async () => {
+      await session.flashMessages.clear()
+    }, 5000)
+
     return response.redirect().toRoute('manager.achievements')
+
+
   }
 
   public async destroy ({response, session, params}: HttpContextContract) {
