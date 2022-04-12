@@ -24,7 +24,6 @@ Route.get('/', async ({ view }) => {
   return view.render('pages/index')
 }).as('home')
 
-Route.get('/notion', 'BlogsController.show')
 Route.get('/about-me', async ({view}) => {
   return view.render('pages/about')
 }).as('about')
@@ -32,9 +31,11 @@ Route.get('/about-me', async ({view}) => {
 Route.get('/achievements', 'AchievementsController.get').as('achievements')
 Route.get('/achievements/:id', 'AchievementsController.visit').as('achievement')
 Route.get('/blogs', 'BlogsController.get').as('blogs').as('blogs')
-Route.get('/contact', async ({view}) => {
-  return view.render('pages/index')
-}).as('contact')
+
+Route.group(() => {
+  Route.get('/', 'ContactsController.index').as('contact')
+  Route.post('/', 'ContactsController.store')
+}).prefix('contact')
 Route.group(() => {
   Route.get('/login', 'AuthController.login').as('login')
   Route.get('/register', 'AuthController.register').as('register')
@@ -66,10 +67,3 @@ Route.group(() => {
 
 
 }).prefix('manager')
-
-Route.get('/test', async ({view, response, bouncer}) => {
-  if (await bouncer.allows('view')) {
-    return view.render('pages/test')
-  }
-  return response.redirect().toRoute('home')
-})
