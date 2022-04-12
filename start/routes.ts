@@ -37,7 +37,9 @@ Route.get('/contact', async ({view}) => {
 }).as('contact')
 Route.group(() => {
   Route.get('/login', 'AuthController.login').as('login')
+  Route.get('/register', 'AuthController.register').as('register')
   Route.post('/login', 'AuthController.loginWeb')
+  Route.post('/register', 'AuthController.registerWeb')
   Route.post('/logout', 'AuthController.logoutWeb')
 }).prefix('authentication')
 
@@ -47,13 +49,21 @@ Route.group(() => {
 
 Route.group(() => {
   Route.get('/', 'ManagersController.show')
-  Route.get('/users', 'UsersController.index').as('manager.user')
 
-  Route.get('/achievements', 'AchievementsController.index').as('manager.achievements')
-  Route.get('/achievements/new', 'AchievementsController.create').as('manager.achievements.create')
-  Route.post('/achievements/new', 'AchievementsController.store')
-  Route.get('/achievements/:id', 'AchievementsController.show').as('manager.achievement')
-  Route.delete('/achievements/:id', 'AchievementsController.destroy')
+  Route.group(() => {
+    Route.get('/', 'UsersController.index').as('manager.users')
+    Route.get('/new', 'UsersController.create').as('manager.users.create')
+    Route.post('/new', 'UsersController.store')
+    Route.get('/:id', 'UsersController.show').as('manager.user')
+  }).prefix('users')
+  Route.group(() => {
+    Route.get('/', 'AchievementsController.index').as('manager.achievements')
+    Route.get('/new', 'AchievementsController.create').as('manager.achievements.create')
+    Route.post('/new', 'AchievementsController.store')
+    Route.get('/:id', 'AchievementsController.show').as('manager.achievement')
+    Route.delete('/:id', 'AchievementsController.destroy')
+  }).prefix('achievements')
+
 
 }).prefix('manager')
 
