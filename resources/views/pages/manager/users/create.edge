@@ -1,0 +1,100 @@
+@layout('layouts/manager')
+
+@section('content')
+  <div class="mx-8 mt-12">
+    <h1 class="text-4xl text-gray-100 font-bold border-b border-slate-700 pb-6">Créer un Utilisateur</h1>
+
+    <div class="space-y-6">
+      <div class="bg-opacity-[0.3] bg-slate-800 border border-gray-700 backdrop-blur-sm mt-8 shadow px-4 py-5 sm:rounded-lg sm:p-6">
+        <div class="md:grid md:grid-cols-3 md:gap-6">
+          <div class="md:col-span-1">
+            <h3 class="text-lg font-medium leading-6 text-gray-200">Utilisateur</h3>
+            <p class="mt-1 text-sm text-gray-500 mr-8">Indique les informations pour créer le compte et l'afficher sur la page
+              <a href="{{ route('manager.users') }}" class="text-gray-300 underline">Utilisateur</a>.</p>
+          </div>
+          <div class="mt-5 md:mt-0 md:col-span-2">
+            <form class="space-y-6" action="#" method="POST">
+              <div class="grid grid-cols-3 gap-6">
+                <div class="col-span-3 sm:col-span-2">
+                  <label for="username" class="block text-sm font-medium text-gray-300"> Nom </label>
+                  <div class="mt-1 flex rounded-md shadow-sm">
+                    <input type="text" name="username" id="username" class="bg-gray-800 border focus:ring-indigo-500 py-2 focus:border-indigo-500 flex-1 block w-full  text-gray-200 rounded-md sm:text-sm border-gray-700 pl-3" placeholder="Nathael">
+                  </div>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-3 gap-6">
+                <div class="col-span-3 sm:col-span-2">
+                  <label for="email" class="block text-sm font-medium text-gray-300"> Email </label>
+                  <div class="mt-1 flex rounded-md shadow-sm">
+                    <input type="email" name="email" id="email" class="bg-gray-800 border focus:ring-indigo-500 py-2 focus:border-indigo-500 flex-1 block w-full  text-gray-200 rounded-md sm:text-sm border-gray-700 pl-3" placeholder="pro.nathaelbonnal@gmail.com">
+                  </div>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-3 gap-6">
+                <div class="col-span-3 sm:col-span-2">
+                  <label for="password" class="block text-sm font-medium text-gray-300"> Mot de Passe </label>
+                  <div class="mt-1 flex rounded-md shadow-sm">
+                    <input type="password" name="password" id="password" class="bg-gray-800 border focus:ring-indigo-500 py-2 focus:border-indigo-500 flex-1 block w-full  text-gray-200 rounded-md sm:text-sm border-gray-700 pl-3" placeholder="Mot de passe">
+                  </div>
+                </div>
+              </div>
+              <div class="grid grid-cols-3 gap-6">
+                <div class="col-span-3 sm:col-span-2">
+                  <label for="password_confirmation" class="block text-sm font-medium text-gray-300"> Confirmer le mot de passe </label>
+                  <div class="mt-1 flex rounded-md shadow-sm">
+                    <input type="password" name="password_confirmation" id="password_confirmation" class="bg-gray-800 border focus:ring-indigo-500 py-2 focus:border-indigo-500 flex-1 block w-full  text-gray-200 rounded-md sm:text-sm border-gray-700 pl-3" placeholder="Mot de passe">
+                  </div>
+                </div>
+              </div>
+
+              <fieldset>
+                <legend class="text-sm font-medium text-gray-300">Accès</legend>
+
+                <div class="mt-1 bg-gray-800 rounded-md shadow-sm -space-y-px">
+                  <!-- Checked: "bg-sky-50 border-sky-200 z-10", Not Checked: "border-gray-200" -->
+                  <label class="rounded-tl-md rounded-tr-md relative border border-gray-700 p-4 flex cursor-pointer focus:outline-none">
+                    <input type="radio" id="access" name="access" value="false" class="h-4 w-4 mt-0.5 cursor-pointer text-sky-600 border-gray-300 focus:ring-sky-500" aria-labelledby="privacy-setting-0-label" aria-describedby="privacy-setting-0-description">
+                    <div class="ml-3 flex flex-col">
+                      <!-- Checked: "text-sky-900", Not Checked: "text-gray-900" -->
+                      <span id="privacy-setting-0-label" class="block text-sm font-medium text-gray-300"> Accès Public </span>
+                      <!-- Checked: "text-sky-700", Not Checked: "text-gray-500" -->
+                      <span id="privacy-setting-0-description" class="block text-sm text-gray-500"> Offre un accès restreint au compte. </span>
+                    </div>
+                  </label>
+
+                  <!-- Checked: "bg-sky-50 border-sky-200 z-10", Not Checked: "border-gray-200" -->
+                  <label class="rounded-bl-md rounded-br-md relative border p-4 border-gray-700 flex cursor-pointer focus:outline-none">
+                    <input type="radio" id="access" required name="access" value="true" class="h-4 w-4 mt-0.5 cursor-pointer text-sky-600 border-gray-300 focus:ring-sky-500" aria-labelledby="privacy-setting-1-label" aria-describedby="privacy-setting-1-description">
+                    <div class="ml-3 flex flex-col">
+                      <!-- Checked: "text-sky-900", Not Checked: "text-gray-900" -->
+                      <span id="privacy-setting-1-label" class="block text-sm font-medium text-gray-300"> Accès Privé</span>
+                      <!-- Checked: "text-sky-700", Not Checked: "text-gray-500" -->
+                      <span id="privacy-setting-1-description" class="block text-sm text-gray-500"> Offre l'accès au panel administratif du site </span>
+                    </div>
+                  </label>
+
+
+                </div>
+              </fieldset>
+
+
+
+
+              <div class="flex justify-end">
+                <a href="{{ route('manager.users') }}" type="button" class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Annuler</a>
+                <button type="submit" class="ml-3 inline-flex justify-center py-2 px-4 border border-gray-600 shadow-sm text-sm font-medium rounded-md text-white bg-gray-800 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Enregistrer</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+    </div>
+  </div>
+@endsection
