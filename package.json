@@ -39,6 +39,7 @@
     "@adonisjs/shield": "^7.0.0",
     "@adonisjs/view": "^6.1.0",
     "alpinejs": "^3.9.5",
+    "axios": "^0.26.1",
     "luxon": "^2.3.1",
     "notion-parser": "^0.2.1",
     "pg": "^8.7.3",
