@@ -1,0 +1,140 @@
+<div class="flex flex-row justify-between items-center px-8 py-2 rounded-md overflow-hidden border-t border-gray-700">
+  <div>
+    <p class="text-gray-500">Page <span class="text-gray-300 underline">{{ items.currentPage }}</span> sur <span class="text-gray-300 underline">{{ items.lastPage }}</span> pour <span class="text-gray-300 underline">{{ items.total }}</span> résultat</p>
+  </div>
+  <div x-data="{active: 'text-white'}" class="flex flex-row text-gray-500">
+    @if(items.currentPage == 1)
+    @else
+      @!component('components/pagination/arrow', {
+      items,
+      direction: 'left',
+      path
+      })
+    @endif
+    @if(number(items.lastPage) < 7)
+      @each((anchor, index) in items.getUrlsForRange(1, items.lastPage))
+
+        @if(items.currentPage == 1 && index == 0)
+          <div :class="{{request.qs().page === anchor.page.toString()}} ? active : '' ">
+            <a
+              class="border-gray-800  rounded-l-md bg-gray-900 hover:bg-gray-800 inline-flex items-center px-4 py-2 border text-sm font-medium"
+              href="{{ route(path) }}{{ anchor.url.replace('/', '') }}"
+            >
+              {{ anchor.page }}
+            </a>
+          </div>
+        @else
+          <div :class="{{request.qs().page === anchor.page.toString()}} ? active : '' ">
+            <a
+              class="border-gray-800  bg-gray-900 hover:bg-gray-800 inline-flex items-center px-4 py-2 border text-sm font-medium"
+              href="{{ route(path) }}{{ anchor.url.replace('/', '') }}"
+            >
+              {{ anchor.page }}
+            </a>
+          </div>
+        @endif
+
+      @endeach
+    @else
+      @if(number(items.currentPage) < 5)
+        @each((anchor, index) in items.getUrlsForRange(1, items.currentPage+2))
+          @if(items.currentPage == 1 && index == 0)
+            <div :class="{{request.qs().page === anchor.page.toString()}} ? active : '' ">
+              <a
+                class="border-gray-800  rounded-l-md bg-gray-900 hover:bg-gray-800 inline-flex items-center px-4 py-2 border text-sm font-medium"
+                href="{{ route(path) }}{{ anchor.url.replace('/', '') }}"
+              >
+                {{ anchor.page }}
+              </a>
+            </div>
+          @else
+            <div :class="{{request.qs().page === anchor.page.toString()}} ? active : '' ">
+              <a
+                class="border-gray-800  bg-gray-900 hover:bg-gray-800 inline-flex items-center px-4 py-2 border text-sm font-medium"
+                href="{{ route(path) }}{{ anchor.url.replace('/', '') }}"
+              >
+                {{ anchor.page }}
+              </a>
+            </div>
+          @endif
+        @endeach
+        <span class="border-gray-800  bg-gray-900 hover:bg-gray-800 inline-flex items-center px-4 py-2 border text-sm font-medium"> ... </span>
+        <a
+          class="border-gray-800  bg-gray-900 hover:bg-gray-800 inline-flex items-center px-4 py-2 border text-sm font-medium"
+          href="{{ route(path) }}?page={{items.lastPage}}">
+          {{ items.lastPage }}
+        </a>
+
+      @elseif(items.lastPage - items.currentPage < 4)
+        <a
+          class="border-gray-800  bg-gray-900 hover:bg-gray-800 inline-flex items-center px-4 py-2 border text-sm font-medium"
+          href="{{ route(path) }}?page={{items.firstPage}}"
+        >
+          {{ items.firstPage }}
+        </a>
+        <span class="border-gray-800  bg-gray-900 hover:bg-gray-800 inline-flex items-center px-4 py-2 border text-sm font-medium"> ... </span>
+        @each(anchor in items.getUrlsForRange(items.currentPage-2, items.lastPage))
+          @if(items.currentPage == items.lastPage)
+            <div :class="{{request.qs().page === anchor.page.toString()}} ? active : '' ">
+              <a
+                class="border-gray-800 rounded-r-md bg-gray-900 hover:bg-gray-800 inline-flex items-center px-4 py-2 border text-sm font-medium"
+                href="{{ route(path) }}{{ anchor.url.replace('/', '') }}"
+              >
+                {{ anchor.page }}
+              </a>
+            </div>
+          @else
+            <div :class="{{request.qs().page === anchor.page.toString()}} ? active : '' ">
+              <a
+                class="border-gray-800  bg-gray-900 hover:bg-gray-800 inline-flex items-center px-4 py-2 border text-sm font-medium"
+                href="{{ route(path) }}{{ anchor.url.replace('/', '') }}"
+              >
+                {{ anchor.page }}
+              </a>
+            </div>
+          @endif
+
+        @endeach
+      @else
+        <a
+          class="border-gray-800  bg-gray-900 hover:bg-gray-800 inline-flex items-center px-4 py-2 border text-sm font-medium"
+          href="{{ route(path) }}?page={{items.firstPage}}"
+        >
+          {{ items.firstPage }}
+        </a>
+        <span class="border-gray-800  bg-gray-900 hover:bg-gray-800 inline-flex items-center px-4 py-2 border text-sm font-medium"> ... </span>
+        @each(anchor in items.getUrlsForRange(items.currentPage-2, items.currentPage+2))
+        <div :class="{{request.qs().page === anchor.page.toString()}} ? active : '' ">
+          <a
+            class="border-gray-800  bg-gray-900 hover:bg-gray-800 inline-flex items-center px-4 py-2 border text-sm font-medium"
+            href="{{ route(path) }}{{ anchor.url.replace('/', '') }}"
+          >
+            {{ anchor.page }}
+          </a>
+        </div>
+        @endeach
+        <span class="border-gray-800  bg-gray-900 hover:bg-gray-800 inline-flex items-center px-4 py-2 border text-sm font-medium"> ... </span>
+        <a
+          class="border-gray-800  bg-gray-900 hover:bg-gray-800 inline-flex items-center px-4 py-2 border text-sm font-medium"
+          href="{{ route(path) }}?page={{items.lastPage}}"
+        >
+          {{ items.lastPage }}
+        </a>
+      @endif
+
+
+
+    @endif
+
+    @if(items.currentPage == items.lastPage)
+    @else
+      @!component('components/pagination/arrow', {
+        items,
+        direction: 'right',
+      path
+      })
+
+    @endif
+
+  </div>
+</div>
