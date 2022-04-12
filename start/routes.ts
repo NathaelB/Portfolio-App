@@ -32,10 +32,11 @@ Route.get('/achievements', 'AchievementsController.get').as('achievements')
 Route.get('/achievements/:id', 'AchievementsController.visit').as('achievement')
 Route.get('/blogs', 'BlogsController.get').as('blogs').as('blogs')
 
-Route.group(() => {
+/* Route.group(() => {
   Route.get('/', 'ContactsController.index').as('contact')
   Route.post('/', 'ContactsController.store')
-}).prefix('contact')
+}).prefix('contact') */
+
 Route.group(() => {
   Route.get('/login', 'AuthController.login').as('login')
   Route.get('/register', 'AuthController.register').as('register')
@@ -43,10 +44,6 @@ Route.group(() => {
   Route.post('/register', 'AuthController.registerWeb')
   Route.post('/logout', 'AuthController.logoutWeb')
 }).prefix('authentication')
-
-
-
-
 
 Route.group(() => {
   Route.get('/', 'ManagersController.show')
@@ -57,6 +54,7 @@ Route.group(() => {
     Route.post('/new', 'UsersController.store')
     Route.get('/:id', 'UsersController.show').as('manager.user')
   }).prefix('users')
+
   Route.group(() => {
     Route.get('/', 'AchievementsController.index').as('manager.achievements')
     Route.get('/new', 'AchievementsController.create').as('manager.achievements.create')
