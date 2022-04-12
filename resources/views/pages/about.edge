@@ -2,37 +2,46 @@
 
 @section('content')
 
-  <div class="h-full flex flex-col">
-    <header class="">
+    <header class="h-[100vh] border-b border-slate-800">
       <div class="absolute inset-0 bottom-10 bg-bottom bg-no-repeat bg-slate-50 index_beams__3fKa4">
         <div class="cadre absolute inset-0  bg-[bottom_1px_center] bg-grid-slate-400/[0.05] bg-bottom border-b border-slate-100/5">
         </div>
       </div>
 
-      <div class="flex flex-col z-10 relative relative flex flex-col items-center justify-center text-center mx-auto  pt-16 md:min-h-[70vh] md:pb-32 pb-24 max-w-screen-xl">
+      <div class="flex flex-col z-10 relative relative flex flex-col items-center justify-center text-center mx-auto  pt-28 md:min-h-[70vh] md:pb-32 pb-24 max-w-screen-xl">
         <div class=" w-full h-[250px] w-[250px]">
           <img class="rounded-full h-full w-full mx-auto object-cover shadow-xl border border-slate-800" src="{{ asset('assets/images/pdp.jpg') }}">
         </div>
         <div class="mt-4">
           <span class="text-base text-center md:text-left leading-6 font-medium uppercase text-gray-400 tracking-wider">bonnal nathaël</span>
         </div>
-        <div>
+        <div class="">
           <h1 class=" mx-auto lg:text-5xl md:text-5xl text-3xl font-bold py-8 drop-shadow-lg max-w-screen-md lg:max-w-screen-lg px-8 text-gray-100">Développeur  <span class="bg-gradient-to-l from-fuchsia-300 to-blue-400 bg-clip-text text-transparent">FullStack Typescript</span> et étudiant <span class="bg-gradient-to-l from-fuchsia-300 to-blue-400 bg-clip-text text-transparent">en informatique</span></h1>
-          <p class="text-slate-400 transform -translate-y-4 mx-6">Je me présente, je m'appelle Bonnal Nathaël, et je suis étudiant en première année de Licence Informatique. Grand passionné d'informatique, je suis aussi photographe. Au niveau du développement je suis spécialisé sur le développement d'application avec AdonisJS et VueJS !</p>
+          <p class="text-slate-400 transform -translate-y-4 mx-auto w-2/3 ">Je me présente, je m'appelle Bonnal Nathaël, et je suis étudiant en première année de Licence Informatique. Grand passionné d'informatique, je suis aussi photographe. Au niveau du développement je suis spécialisé sur le développement d'application avec AdonisJS et VueJS !</p>
         </div>
-        <div class="text-slate-300 items-center space-x-6 text-2xl">
-          <a href="https://github.com/NathaelB" target="_blank">
-            <i class="fa-brands fa-github"></i>
-          </a>
-          <a href="https://twitter.com/NathaelBonnal" target="_blank">
-            <i class="fa-brands fa-twitter"></i>
-          </a>
-          <a href="https://www.instagram.com/nathael.bnl/" target="_blank">
-            <i class="fa-brands fa-instagram"></i>
-          </a>
-          <a href="https://www.linkedin.com/in/nathael-bonnal-938a511b5/" target="_blank">
-            <i class="fa-brands fa-linkedin"></i>
-          </a>
+        <div class="text-slate-300 items-center space-x-6 text-2xl flex">
+          <div class="hover:transform hover:-translate-y-1 ease-in-out duration-300">
+            <a href="https://github.com/NathaelB" target="_blank">
+              <i class="fa-brands fa-github"></i>
+            </a>
+          </div>
+          <div class="hover:transform hover:-translate-y-1 ease-in-out duration-300">
+            <a href="https://twitter.com/NathaelBonnal" target="_blank">
+              <i class="fa-brands fa-twitter"></i>
+            </a>
+          </div>
+          <div class="hover:transform hover:-translate-y-1 ease-in-out duration-300">
+            <a href="https://www.instagram.com/nathael.bnl/" target="_blank">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+          </div>
+          <div class="hover:transform hover:-translate-y-1 ease-in-out duration-300">
+            <a href="https://www.linkedin.com/in/nathael-bonnal-938a511b5/" target="_blank">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
+          </div>
+
+
 
 
         </div>
@@ -40,8 +49,60 @@
       </div>
 
     </header>
+    <div>
+      <div class="">
 
-  </div>
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8">
+          <div class="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
+            <div>
+              <h2 class="text-3xl font-extrabold text-gray-100 sm:text-4xl">Technologies utilisées</h2>
+              <div class="flex flex-col mt-3 max-w-3xl text-lg text-gray-500 space-y-4">
+                <p class="">En tant que développeur web fullstack voici les divers technologies et langages que je maitrise !</p>
+                <p>
+                  Tout au long de mon parcours je suis amené à découvrir de nouveaux langages et de nouvelles technologies que ça soit pour mon parcours personnel, scolaire, ou professionnel. De surcroît la théorie que
+                  j'ai pu acquérir grâce à l'Université me permet de comprendre d'une façon générale un grand nombre de notion, par exemple j'ai du toucher du <span class="decoration-cyan-500 underline decoration-wavy underline-offset-4">OCaml</span> ou encore du <span class="decoration-cyan-500 underline decoration-wavy underline-offset-4">C</span> et du <span class="decoration-cyan-500 underline decoration-wavy underline-offset-4">Python</span> par rapport à mes cours
+                </p>
+              </div>
+
+              <div class="mt-8 sm:flex">
+                <div class="rounded-md shadow">
+                  <a href="/contact" class="flex items-center justify-center px-5 py-3 border border border-slate-700 text-base font-medium rounded-md text-white bg-gray-800 hover:bg-indigo-700"> Contactez-moi </a>
+                </div>
+
+              </div>
+            </div>
+            <div class="mt-8 grid grid-cols-2 gap-0.5 md:grid-cols-3 lg:mt-0 lg:grid-cols-2">
+              <div class="col-span-1 flex justify-center ">
+                <img class="" src="https://leadcode.fr/api/uploads/technologies/1604932766918.jpg" alt="Workcation">
+              </div>
+              <div class="col-span-1 flex justify-center ">
+                <img class="" src="https://leadcode.fr/api/uploads/technologies/1601930120847.jpg" alt="Workcation">
+              </div>
+              <div class="col-span-1 flex justify-center ">
+                <img class="" src="https://leadcode.fr/api/uploads/technologies/1601930962265.jpg" alt="Workcation">
+              </div>
+              <div class="col-span-1 flex justify-center ">
+                <img class="" src="https://leadcode.fr/api/uploads/technologies/1601933635490.jpg" alt="Workcation">
+              </div>
+              <div class="col-span-1 flex justify-center ">
+                <img class="" src="https://leadcode.fr/api/uploads/technologies/1601931042416.jpg" alt="Workcation">
+              </div>
+              <div class="col-span-1 flex justify-center ">
+                <img class="" src="https://leadcode.fr/api/uploads/technologies/1601931147411.jpg" alt="Workcation">
+              </div>
+              <div class="col-span-1 flex justify-center">
+                <img src="https://leadcode.fr/api/uploads/technologies/1601931655539.jpg" alt="">
+              </div>
+              <div class="col-span-1 flex justify-center">
+                <img src="https://leadcode.fr/api/uploads/technologies/1601930355601.jpg" alt="">
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
 
 
 @endsection

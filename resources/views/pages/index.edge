@@ -2,43 +2,113 @@
 
 @section('content')
 
-<div class="h-full flex flex-col">
+<div class="flex flex-col h-full ">
 
-  <header class="">
-    <div class="absolute inset-0 bottom-10 bg-bottom bg-no-repeat bg-slate-50 index_beams__3fKa4">
+  <header class="h-[100vh] border-b border-slate-100">
+    <div class="absolute inset-0 bottom-10 bg-bottom bg-no-repeat bg-slate-50 index_beams__3fKa4 w-full">
       <div class="cadre absolute inset-0  bg-[bottom_1px_center] bg-grid-slate-400/[0.05] bg-bottom border-b border-slate-100/5">
 
       </div>
     </div>
 
-    <div class="flex flex-col z-10 relative relative flex flex-col items-center justify-center text-center mx-auto  pt-16 md:min-h-[70vh] md:pb-32 pb-24 max-w-screen-xl">
+    <div class="flex flex-col z-10 mt-16 relative relative flex flex-col items-center justify-center mx-auto  pt-16 md:min-h-[70vh] md:pb-32 pb-24 max-w-screen-xl">
       <div class="mb-2 rounded-full inline-flex items-center justify-center shadow-xl relative overflow-hidden border border-slate-800">
         <div class="items-center justify-center space-x-1 bg-white bg-opacity-5 bg-blend-overlay relative firefox:bg-blend-normal supports-backdrop-blur:backdrop-blur-sm supports-backdrop-blur:backdrop-brightness-125 uppercase text-xs font-semibold tracking-wide leading-5 rounded-full px-4 py-1.5 inline-flex button--animate">
           <span class="opacity-90 text-white">nouveau site</span>
         </div>
       </div>
       <div class="flex flex-col space-y-8 mx-auto">
-        <div>
+        <div class="text-center ">
           <h1 class=" mx-auto lg:text-5xl md:text-5xl text-3xl font-bold py-8 drop-shadow-lg max-w-screen-md lg:max-w-screen-lg px-8 text-gray-100">Développeur  <span class="bg-gradient-to-l from-fuchsia-300 to-blue-400 bg-clip-text text-transparent">FullStack Typescript</span> et étudiant <span class="bg-gradient-to-l from-fuchsia-300 to-blue-400 bg-clip-text text-transparent">en informatique</span></h1>
-          <p class="text-slate-400 transform -translate-y-4 mx-6">Je me présente, je m'appelle Bonnal Nathaël, et je suis étudiant en première année de licence Informatique. Grand passionné d'informatique, je suis aussi photographe. Au niveau du développement je suis spécialisé sur le développement d'applications avec AdonisJS et VueJs !</p>
+          <p class="text-slate-400 transform -translate-y-4 mx-6 lg:w-2/3 lg:mx-auto">Je me présente, je m'appelle Bonnal Nathaël, et je suis étudiant en première année de licence Informatique. Grand passionné d'informatique, je suis aussi photographe. Au niveau du développement je suis spécialisé sur le développement d'applications avec AdonisJS et VueJs !</p>
         </div>
 
         <div class="flex space-x-4 mx-auto relative z-50">
-          <button id="contact--button" class="button--header contact">Me Contacter</button>
-          <button id="realisation--button" class="button--header">Mes Réalisations</button>
+          <a href="{{ route('contact') }}" id="contact--button" class="button--header contact">Me Contacter</a>
+          <a href="{{ route('achievements') }}" id="realisation--button" class="button--header">Mes Réalisations</a>
         </div>
       </div>
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 mt-16 lg:w-2/3 hidden md:block">
-        <img class="relative rounded-lg shadow-lg" src="https://tailwindui.com/img/component-images/top-nav-with-multi-column-layout-screenshot.jpg" alt="App screenshot">
-      </div>
+
 
     </div>
-
   </header>
-  <div class="relative z-50">
-    <button id="test" class="button--header contact">Me Contacter</button>
+
+  <div class="">
+    {{-- First Part --}}
+    <div class="py-16 overflow-hidden lg:py-24 section--argument">
+      <div class="relative max-w-xl mx-auto px-4 sm:px-6 lg:px-8 lg:max-w-7xl">
+        <svg class="hidden lg:block absolute left-full transform -translate-x-1/2 -translate-y-1/4 svg--background" width="404" height="784" fill="none" viewBox="0 0 404 784" aria-hidden="true">
+          <defs>
+            <pattern id="b1e6e422-73f8-40a6-b5d9-c8586e37e0e7" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+              <rect x="0" y="0" width="4" height="4" class="text-slate-800" fill="currentColor" />
+            </pattern>
+          </defs>
+          <rect width="404" height="784" fill="url(#b1e6e422-73f8-40a6-b5d9-c8586e37e0e7)" />
+        </svg>
+
+        <div class="relative">
+          <h2 class="text-center text-3xl leading-8 font-extrabold tracking-tight text-gray-100 sm:text-4xl">Mon désir d'évolution !</h2>
+          <p class="mt-4 max-w-3xl mx-auto text-center text-xl text-gray-300">J'ai une grande motivation dans le désir d'apprendre et de constamment me surpasser, d'où le fait que j'essais à chaque fois de repousser les limites que je rencontre afin d'évoluer et pouvoir offrir à mes clients un travail de qualité !</p>
+        </div>
+
+        <div class="relative mt-12 lg:mt-24 lg:grid lg:grid-cols-2 lg:gap-8 lg:items-center">
+          <div class="relative">
+            <h3 class="text-2xl font-extrabold text-gray-200 tracking-tight sm:text-3xl">Pourquoi faire appel à moi ?</h3>
+            <p class="mt-3 text-lg text-gray-400">Là où beaucoup d'entreprises s'arrêtent à la mission, votre projet dans son ensemble m'intéresse. Il est dans mes exigences de cibler à la perfection vos besoins et attentes et ainsi de permettre la conception sur-mesure de votre projet, connaître mon environnement est la clef pour la réussite !</p>
+
+            <dl class="mt-10 space-y-10">
+              <div class="relative">
+                <dt>
+                  <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
+                    <!-- Heroicon name: outline/globe-alt -->
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                    </svg>
+                  </div>
+                  <p class="ml-16 text-lg leading-6 font-medium text-gray-200">Développement sur mesure</p>
+                </dt>
+                <dd class="mt-2 ml-16 text-base text-gray-500">Vous avez une idée, je suis la personne pour la réaliser, mon expérience et mon savoir me permet de m'adapter aux différents problèmes et réussir mes missions.</dd>
+              </div>
+
+              <div class="relative">
+                <dt>
+                  <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
+                    <!-- Heroicon name: outline/scale -->
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3" />
+                    </svg>
+                  </div>
+                  <p class="ml-16 text-lg leading-6 font-medium text-gray-200">Référencement naturel</p>
+                </dt>
+                <dd class="mt-2 ml-16 text-base text-gray-500">Figurer dans le haut des recherches est indispensable pour la visibilité de votre projet et ainsi vendre vos services.</dd>
+              </div>
+
+              <div class="relative">
+                <dt>
+                  <div class="absolute flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white">
+                    <!-- Heroicon name: outline/lightning-bolt -->
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  </div>
+                  <p class="ml-16 text-lg leading-6 font-medium text-gray-200">Puissance et optimisation</p>
+                </dt>
+                <dd class="mt-2 ml-16 text-base text-gray-500">Mon parcours et mes connaissances sur différentes notions me permettent de vous garantir un produit de qualité qui sera vous satisfaire.</dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="mt-10 -mx-4 relative lg:mt-0" aria-hidden="true">
+
+            <img class="relative mx-auto rounded-md" width="490" src="https://bpa.archi/wp-content/uploads/2020/01/bpa-architecture-projet-enseignement-recherche-village-des-sciences-00.jpg" alt="">
+          </div>
+        </div>
+
+
+      </div>
+    </div>
   </div>
-  {{ inspect(auth.user) }}
+
 </div>
 
 
