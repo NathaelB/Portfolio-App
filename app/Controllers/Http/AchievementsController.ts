@@ -37,7 +37,6 @@ export default class AchievementsController {
   public async visit ({ params, view }: HttpContextContract) {
     const achievement = await Achievement.findBy('slug',params.id)
     const technos = await TechnoAchievement.query().where('achievementId', achievement!.id)
-    console.log(technos)
     return view.render('pages/achievement/show', {
       achievement,
       technos
@@ -45,7 +44,6 @@ export default class AchievementsController {
   }
 
   public async show ({ params, view, bouncer, auth, response}: HttpContextContract) {
-    console.log(params)
     const achievement = await Achievement.findOrFail(params.id)
     if (await bouncer.can('view', auth.user)) {
       return view.render('pages/manager/achievement/show', {
@@ -75,7 +73,6 @@ export default class AchievementsController {
     })*/
     const thumbnail = request.file('thumbnail')
     const newName = string.generateRandom(32) + '.' + thumbnail?.extname
-    console.log(newName)
     await thumbnail?.moveToDisk('./', {
       name: newName,
     })
