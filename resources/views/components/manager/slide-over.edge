@@ -1,0 +1,72 @@
+<div x-show='open' class="fixed bg-red-500 z-50 w-full h-full" role="dialog" aria-modal="true">
+  <div class="absolute bg-blue-500 top-0 left-0 w-full h-full">
+
+    <div class=" fixed z-50 inset-y-0 right-0 flex max-w-full pl-10 sm:pl-16">
+
+      <div class="pointer-events-auto w-screen max-w-md">
+        <div class="flex h-full flex-col relative z-50 bg-gray-800 bg-opacity-[0.5] backdrop-blur-sm shadow-xl">
+          <div class="px-4 py-6 sm:px-6">
+            <div class="flex items-start justify-between relative z-50">
+              <h2 id="slide-over-heading" class="text-lg font-medium text-gray-200">Profile</h2>
+              <div class="ml-3 flex h-7 items-center">
+                <button @click="toggle" type="button" class="rounded-md text-gray-300 hover:text-gray-500 focus:ring-2 focus:ring-indigo-500">
+                  <span class="sr-only">Close panel</span>
+                  <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Main -->
+          <div>
+            <div class="pb-1 sm:pb-6">
+              <div>
+                <div class="relative h-40 sm:h-56">
+                  <img class="absolute h-full w-full object-cover" src="{{ asset('assets/images/pdp.jpg') }}" alt="">
+                </div>
+                <div class="mt-6 px-4 sm:mt-8 sm:flex sm:items-end sm:px-6">
+                  <div class="sm:flex-1">
+                    <div>
+                      <div class="flex items-center">
+                        <h3 class="text-xl font-bold text-gray-200 sm:text-2xl">{{ auth.user.username }}</h3>
+                        <span class="ml-2.5 inline-block h-2 w-2 flex-shrink-0 rounded-full bg-green-400">
+                          <span class="sr-only">Online</span>
+                        </span>
+                      </div>
+                      <p class="text-sm text-gray-500">{{ auth.user.email }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="px-4 pt-5 pb-5 sm:px-0 sm:pt-0">
+              <dl class="space-y-8 px-4 sm:space-y-6 sm:px-6">
+                <div>
+                  <dt class="text-sm font-medium text-gray-200 sm:w-40 sm:flex-shrink-0">Bio</dt>
+                  <dd class="mt-1 text-sm text-gray-400 sm:col-span-2">
+                    <p>Enim feugiat ut ipsum, neque ut. Tristique mi id elementum praesent. Gravida in tempus feugiat netus enim aliquet a, quam scelerisque. Dictumst in convallis nec in bibendum aenean arcu.</p>
+                  </dd>
+                </div>
+                <div>
+                  <dt class="text-sm font-medium text-gray-200 sm:w-40 sm:flex-shrink-0">Location</dt>
+                  <dd class="mt-1 text-sm text-gray-400 sm:col-span-2">New York, NY, USA</dd>
+                </div>
+                <div>
+                  <dt class="text-sm font-medium text-gray-200 sm:w-40 sm:flex-shrink-0">Website</dt>
+                  <dd class="mt-1 text-sm text-gray-400 sm:col-span-2">nathaelb.fr</dd>
+                </div>
+                <div>
+                  <dt class="text-sm font-medium text-gray-200 sm:w-40 sm:flex-shrink-0">Birthday</dt>
+                  <dd class="mt-1 text-sm text-gray-400 sm:col-span-2">
+                    <time datetime="1988-06-23"> 5 Juillet, 2003 </time>
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

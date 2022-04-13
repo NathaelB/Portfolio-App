@@ -1,0 +1,92 @@
+<div x-data="dropdown" class="w-[20%] fixed">
+  <nav class="bg-gray-800 bg-opacity-[0.5] h-screen  border-r border-gray-700 flex flex-col justify-between  flex flex-col min-h-0 ">
+    <div class="flex flex-col  space-y-8 mt-8 pl-8">
+      <a href="/">
+        <img class="w-1/2" src="{{ asset('assets/images/logo_white.png') }}">
+      </a>
+      <div class="space-y-2 translate-x-[1px] text-gray-600 flex flex-col" x-data="{ data: 'bg-slate-800 text-gray-50 border-r border-slate-800 rounded-l-md' }">
+        <div :class="{{request.url() === '/manager'}} ? data : ''">
+          <a href="/manager"  class="group flex items-center px-3 py-2 text-sm font-medium rounded-md" aria-current="page">
+            <svg class=" flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
+            </svg>
+            <span class="truncate"> Dashboard </span>
+          </a>
+        </div>
+        <div :class="{{request.url().includes('users')}} ? data : '' ">
+          <a href="/manager/users" class="group flex items-center px-3 py-2 text-sm font-medium rounded-md">
+            <svg class=" flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+            <span class="truncate"> Utilisateurs </span>
+          </a>
+        </div>
+        <div :class="{{request.url().includes('achievements')}} ? data : ''">
+          <a href="/manager/achievements" class="  group flex items-center px-3 py-2 text-sm font-medium rounded-md">
+            <svg class=" flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z" />
+            </svg>
+            <span class="truncate"> Réalisations </span>
+          </a>
+        </div>
+        <div :class="{{request.url().includes('blog')}} ? data : ''">
+          <a href="/manager/blog" class="  group flex items-center px-3 py-2 text-sm font-medium rounded-md">
+            <svg class=" flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z" />
+            </svg>
+            <span class="truncate"> Blog </span>
+          </a>
+        </div>
+        <div :class="{{request.url().includes('commandes')}} ? data : ''">
+          <a href="/manager/commandes" class=" group flex items-center px-3 py-2 text-sm font-medium rounded-md">
+            <svg class="  flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
+            </svg>
+            <span class="truncate"> Commandes </span>
+          </a>
+        </div>
+        <div :class="{{request.url().includes('stats')}} ? data : ''">
+          <a href="/manager/stats" class=" group flex items-center px-3 py-2 text-sm font-medium rounded-md">
+            <svg class="  flex-shrink-0 -ml-1 mr-3 h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+            </svg>
+            <span class="truncate"> Statistiques </span>
+          </a>
+        </div>
+
+
+
+
+      </div>
+    </div>
+    <div class="flex-shrink-0 flex border-t border-slate-800 p-4 pl-8 mb-4 pt-6">
+      <button @click="toggle" class="flex-shrink-0 w-full group block">
+        <div class="flex items-center">
+          <div>
+            <img class="inline-block h-9 w-9 rounded-full object-cover" src="{{ asset('assets/images/pdp.jpg') }}" alt="">
+          </div>
+          <div class="ml-3">
+            <p class="text-sm font-medium text-white">{{ auth.user.username }}</p>
+            <p class="text-xs font-medium text-gray-300 group-hover:text-gray-200">Voir profil</p>
+          </div>
+        </div>
+      </button>
+    </div>
+
+
+  </nav>
+  @!component('components/manager/slide-over')
+</div>
+
+<style>
+  .pdp::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 100px;
+    background: rgba(0,0,0,0.3);
+  }
+</style>

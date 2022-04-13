@@ -1,10 +1,13 @@
 import { ApplicationContract } from '@ioc:Adonis/Core/Application'
-
+import CacheService from '../services/Cache'
 export default class AppProvider {
   constructor(protected app: ApplicationContract) {}
 
   public register() {
-    // Register your own bindings
+    this.app.container.singleton("Adonis/Core/Cache", () => new CacheService())
+    /*this.app.container.singleton('ContactService', (ioc: Ioc) => {
+      return new ContactService('pro.nathaelbonnal@gmail.com', ioc.resolveBinding('Adonis/Addons/Mail'), ioc.resolveBinding('Adonis/Core/Validator'))
+    })*/
   }
 
   public async boot() {
@@ -12,7 +15,6 @@ export default class AppProvider {
   }
 
   public async ready() {
-    // App is ready
   }
 
   public async shutdown() {

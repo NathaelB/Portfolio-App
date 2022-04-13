@@ -1,7 +1,8 @@
 import { DateTime } from 'luxon'
-import { BaseModel, beforeCreate, beforeSave, column } from '@ioc:Adonis/Lucid/Orm'
+import { BaseModel, beforeCreate, beforeSave, column, HasOne, hasOne } from '@ioc:Adonis/Lucid/Orm'
 import Generate from '../../utils/GenerateUUID'
 import Hash from '@ioc:Adonis/Core/Hash'
+import Avatar from 'App/Models/Avatar'
 
 export default class User extends BaseModel {
   @column({ isPrimary: true })
@@ -15,6 +16,12 @@ export default class User extends BaseModel {
 
   @column()
   public password: string
+
+  @column()
+  public access: boolean
+
+  @hasOne(() => Avatar)
+  public avatar: HasOne<typeof Avatar>
 
   @column()
   public rememberMeToken?: string
