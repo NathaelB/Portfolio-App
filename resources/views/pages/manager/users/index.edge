@@ -22,17 +22,23 @@
           </thead>
           <tbody class="divide-y divide-gray-700 ">
           @each(user in users)
-          <tr>
+          <tr class="w-full">
             <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-500 sm:pl-6">
               <a href="#">{{ user.username }}</a>
             </td>
             <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ user.email }}</td>
-            <td class="whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
+            <td class="whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm float font-medium sm:pr-6 s space-y-2 right-0">
               <form action="{{ route('manager.user', {id: user.id}) }}" method="GET">
                 <button class="bg-gray-800 border border-slate-700 p-2 rounded-md shadow-lg text-white">
                   Modifier
                 </button>
               </form>
+              <form action="{{ route('manager.user', {id: user.id}) }}?_method=delete" method="POST">
+                <button class="bg-red-400 p-2 rounded-md shadow-lg text-white">
+                  Supprimer
+                </button>
+              </form>
+
             </td>
           </tr>
           @endeach

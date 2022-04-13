@@ -1,0 +1,67 @@
+@layout('layouts/manager')
+
+@section('content')
+  <div class="mx-8 mt-12">
+    <h1 class="text-4xl text-gray-100 font-bold border-b border-slate-700 pb-6">Modifier une ressource</h1>
+
+    <div class="space-y-6">
+      <div class="bg-opacity-[0.3] bg-slate-800 border border-gray-700 backdrop-blur-sm mt-8 shadow px-4 py-5 sm:rounded-lg sm:p-6">
+        <div class="md:grid md:grid-cols-3 md:gap-6">
+          <div class="md:col-span-1">
+            <h3 class="text-lg font-medium leading-6 text-gray-200">Réalisations</h3>
+            <p class="mt-1 text-sm text-gray-500 mr-8">Indique les informations pour modifier la réalisation et l'afficher sur la page
+              <a href="{{ route('achievements') }}" class="text-gray-300 underline">Réalisations</a>.</p>
+          </div>
+          <div class="mt-5 md:mt-0 md:col-span-2">
+            <form class="space-y-6" action="" method="POST">
+              <div class="grid grid-cols-3 gap-6">
+                <div class="col-span-3 sm:col-span-2">
+                  <label for="username" class="block text-sm font-medium text-gray-300"> Username </label>
+                  <div class="mt-1 flex rounded-md shadow-sm">
+                    <input type="text" name="username" id="username" value="{{user.username}}" class="bg-gray-800 border focus:ring-indigo-500 py-2 focus:border-indigo-500 flex-1 block w-full  text-gray-200 rounded-md sm:text-sm border-gray-700 pl-3" placeholder="{{ user.username }}">
+                  </div>
+                </div>
+              </div>
+
+              <div class="grid grid-cols-3 gap-6">
+                <div class="col-span-3 sm:col-span-2">
+                  <label for="email" class="block text-sm font-medium text-gray-300"> Email </label>
+                  <div class="mt-1 flex rounded-md shadow-sm">
+                    <input type="email" name="email" id="email" value="{{ user.email }}" class="bg-gray-800 border focus:ring-indigo-500 py-2 focus:border-indigo-500 flex-1 block w-full  text-gray-200 rounded-md sm:text-sm border-gray-700 pl-3" placeholder="{{user.email}}">
+                  </div>
+                </div>
+              </div>
+              <div class="grid grid-cols-3 gap-6">
+                <div class="col-span-3 sm:col-span-2">
+                  <label for="password" class="block text-sm font-medium text-gray-300"> Mot De Passe </label>
+                  <div class="mt-1 flex rounded-md shadow-sm">
+                    <input type="password" name="password" id="password" class="bg-gray-800 border focus:ring-indigo-500 py-2 focus:border-indigo-500 flex-1 block w-full  text-gray-200 rounded-md sm:text-sm border-gray-700 pl-3">
+                  </div>
+                </div>
+              </div>
+
+
+
+
+
+              <div class="flex justify-end">
+                <a href="{{ route('manager.users') }}" type="button" class="bg-white py-2 px-4 border border-gray-300 rounded-md shadow-sm text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Annuler</a>
+                <button type="submit" class="ml-3 inline-flex justify-center py-2 px-4 border border-gray-600 shadow-sm text-sm font-medium rounded-md text-white bg-gray-800 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Enregistrer</button>
+                <form action="{{ route('manager.user', {id: user.id}) }}?_method=delete">>
+                  <button class="bg-red-400 p-2 rounded-md shadow-lg text-white">
+                    Supprimer
+                  </button>
+                </form>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+    </div>
+  </div>
+@endsection

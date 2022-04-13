@@ -3,12 +3,12 @@ import User from 'App/Models/User'
 import Achievement from 'App/Models/Achievement'
 
 export const UserFactory = Factory
-  .define(User, ({ faker }: FactoryContextContract) => {
+  .define(User, () => {
     return {
-      username: faker.internet.userName(),
-      email: faker.internet.email(),
-      password: faker.internet.password(),
-      access: false
+      username: "Nathael",
+      email: "pro.nathaelbonnal@gmail.com",
+      password: "nathael",
+      access: true
     }
   }).build()
 

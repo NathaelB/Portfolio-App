@@ -19,10 +19,15 @@ export default class UsersController {
     return response.redirect().toRoute('home')
   }
 
-  public async show ({ params }: HttpContextContract) {
-    return User.query()
-      .where('email', params.id)
-      .first()
+  public async show ({ params, view, bouncer, auth, response }: HttpContextContract) {
+    const user = await User.findOrFail(params.id)
+    if (await bouncer.can('view', auth.user)) {
+      return view.render('pages/manager/users/show', {
+        user
+      })
+    }
+
+    return response.redirect().toRoute('home')
   }
 
   public async create ({ view, auth, bouncer, response}: HttpContextContract) {
@@ -53,16 +58,18 @@ export default class UsersController {
   }
 
   public async update ({ request, params, response }: HttpContextContract) {
-    const user = await User.findBy('email', params.id)
+    const user = await User.findBy('id', params.id)
     const data = await request.validate(UpdateValidator)
     await user!.merge(data).save()
 
-    return response.redirect().toRoute('welcome')
+    return response.redirect().toRoute('manager.users')
     // Redirigé sur le panel (possibilité)
   }
 
-  public async destroy ({ params }: HttpContextContract) {
-    const user = await User.findBy('email', params.id)
-    return user!.delete()
+  public async destroy ({ params, response }: HttpContextContract) {
+    const user = await User.findOrFail(params.id)
+    await user!.delete()
+
+    return response.redirect().toRoute('manager.users')
   }
 }
